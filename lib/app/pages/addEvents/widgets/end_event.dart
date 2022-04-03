@@ -41,14 +41,14 @@ class EndEvent extends GetView<AddEventController> {
               );
             },
             child: Obx(() => (controller.end == null)
-                ? Text('Seleccionar fecha de final de ${controller.tipo}')
+                ? Text('Seleccionar fecha de final de ${controller.type}')
                 : Text(
-                    (controller.tipo == 'Cita')
-                        ? 'Final de la ${controller.tipo} ' +
-                            DateFormat('dd/MM/yyyy hh:mm')
+                    (controller.type == 'Cita')
+                        ? 'Final de la ${controller.type} ' +
+                            DateFormat('dd/MM/yyyy HH:mm', 'es')
                                 .format(controller.end)
-                        : 'Final del ${controller.tipo} ' +
-                            DateFormat('dd/MM/yyyy hh:mm')
+                        : 'Final del ${controller.type} ' +
+                            DateFormat('dd/MM/yyyy HH:mm', 'es')
                                 .format(controller.end),
                   )),
           ),

@@ -22,9 +22,9 @@ class SwitchAllDay extends GetView<AddEventController> {
           Expanded(child: Text(' El evento dura todo el día')),
           Obx(() => CupertinoSwitch(
                 activeColor: Theme.of(context).primaryColor,
-                value: controller.isAllDay,
+                value: controller.allDay,
                 onChanged: (value) {
-                  controller.isAllDay = value;
+                  controller.allDay = value;
                 },
               )),
         ],

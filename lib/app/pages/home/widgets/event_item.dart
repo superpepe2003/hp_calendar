@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:heippi_calendar/app/global_widgets/detail_event.dart';
 import 'package:heippi_calendar/app/pages/home/home_controllers.dart';
 import 'package:intl/intl.dart';
 
@@ -11,6 +12,19 @@ class EventItem extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: () {
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return Center(
+                child: AlertDialog(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                    contentPadding: EdgeInsets.all(0.0),
+                    content: DetailEvent(event: controller.getEvent(index))),
+              );
+            }).then((value) => {});
+      },
       visualDensity: VisualDensity(vertical: 4),
       title: Text(controller.citas[index].name),
       subtitle: Text(controller.citas[index].description),

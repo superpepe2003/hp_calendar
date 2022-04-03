@@ -1,7 +1,6 @@
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:heippi_calendar/app/pages/addEvents/addEventPage.dart';
 import 'package:heippi_calendar/app/pages/addEvents/add_event_binding.dart';
-import 'package:heippi_calendar/app/pages/detailEvent/detailEvent.dart';
 import 'package:heippi_calendar/app/pages/home/home.dart';
 import 'package:heippi_calendar/app/pages/home/home_binding.dart';
 
@@ -18,11 +17,6 @@ class AppPages {
       name: AppRoutes.ADDEVENT,
       page: () => AddEventPage(),
       binding: AddEventBinding(),
-    ),
-    GetPage(
-      name: AppRoutes.DETAILEVENT,
-      page: () => DetailEventPage(),
-      // binding: DetailEventBinding(),
     ),
   ];
 }

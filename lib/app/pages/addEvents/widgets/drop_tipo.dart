@@ -19,7 +19,7 @@ class DropTipo extends GetView<AddEventController> {
               Expanded(
                 child: DropdownButton(
                   isExpanded: true,
-                  value: controller.tipo,
+                  value: controller.type,
                   items: controller.types.map((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
@@ -27,7 +27,7 @@ class DropTipo extends GetView<AddEventController> {
                     );
                   }).toList(),
                   onChanged: (value) {
-                    controller.tipo = value;
+                    controller.type = value;
                   },
                 ),
               ),

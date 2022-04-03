@@ -44,15 +44,13 @@ class HomeController extends GetxController {
     _citas.assignAll([cita1, cita2, cita3]);
   }
 
-  void add() {
-    _citas.add(CitaModel(
-      type: 'Cita',
-      name: 'Cita 4',
-      start: DateTime.parse('2020-01-04'),
-      end: DateTime.parse('2020-01-04'),
-      allDay: false,
-      description: 'Descripcion de la cita 4',
-    ));
+  void add(CitaModel cita) {
+    _citas.add(cita);
+    print(citas.length);
+  }
+
+  CitaModel getEvent(int index) {
+    return citas[index];
   }
 
   List<CitaModel> get citas => _citas.toList();

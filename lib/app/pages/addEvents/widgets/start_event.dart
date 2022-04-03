@@ -38,13 +38,13 @@ class StartEvent extends GetView<AddEventController> {
               );
             },
             child: Obx(() => (controller.start == null)
-                ? Text('Seleccionar fecha de inicio de ${controller.tipo}')
+                ? Text('Seleccionar fecha de inicio de ${controller.type}')
                 : Text(
-                    (controller.tipo == 'Cita')
-                        ? 'Inicio de la ${controller.tipo} ' +
+                    (controller.type == 'Cita')
+                        ? 'Inicio de la ${controller.type} ' +
                             DateFormat('dd/MM/yyyy hh:mm')
                                 .format(controller.start)
-                        : 'Inicio del ${controller.tipo} ' +
+                        : 'Inicio del ${controller.type} ' +
                             DateFormat('dd/MM/yyyy hh:mm')
                                 .format(controller.start),
                   )),

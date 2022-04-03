@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:heippi_calendar/app/pages/addEvents/add_event_controller.dart';
+import 'package:heippi_calendar/app/pages/addEvents/widgets/boton_cancelar.dart';
 
+import 'widgets/boton_grabar.dart';
 import 'widgets/drop_tipo.dart';
 import 'widgets/end_event.dart';
 import 'widgets/start_event.dart';
@@ -53,29 +55,11 @@ class AddEventPage extends GetView<AddEventController> {
                 EndEvent(),
                 SwitchAllDay(),
                 TxtDescription(),
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  child: MaterialButton(
-                    color: Color(0xFF0D6C8C),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            bottomRight: Radius.circular(20))),
-                    child: Container(
-                      width: 200,
-                      height: 50,
-                      child: Center(
-                        child: Text(
-                          'Grabar Evento',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ),
-                    onPressed: () {
-                      print(
-                          '${controller.tipo} - ${controller.name} - ${controller.start} - ${controller.end} - ${controller.isAllDay} - ${controller.description}');
-                    },
-                  ),
+                Row(
+                  children: [
+                    BotonGrabar(),
+                    BotonCancelar(),
+                  ],
                 )
               ],
             ),
