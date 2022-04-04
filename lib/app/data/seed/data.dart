@@ -3,8 +3,8 @@ import 'package:heippi_calendar/app/data/model/cita_model.dart';
 var cita1 = CitaModel(
   type: 'Evento',
   name: 'Cumpleaños de Agustín',
-  start: DateTime.parse('2020-04-06 00:00:00'),
-  end: DateTime.parse('2020-04-06 23:59:59'),
+  start: DateTime.parse('2022-04-06 00:00:00'),
+  end: DateTime.parse('2022-04-06 23:59:59'),
   allDay: true,
   description: 'Es el cumpleaños de Agustín',
 );

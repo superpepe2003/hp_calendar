@@ -2,9 +2,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:heippi_calendar/app/data/model/cita_model.dart';
-import 'package:heippi_calendar/app/routes/app_routes.dart';
 import 'package:intl/intl.dart';
 
 class DetailEvent extends StatelessWidget {
@@ -14,7 +12,6 @@ class DetailEvent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(event.description);
     return Container(
       height: MediaQuery.of(context).size.height * 0.65,
       width: MediaQuery.of(context).size.width * 0.9,

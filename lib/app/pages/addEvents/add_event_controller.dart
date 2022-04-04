@@ -95,6 +95,5 @@ class AddEventController extends GetxController {
       _errorName.value = '';
       _errorForm.value = _errorForm.value.replaceAll('name', '');
     }
-    print(_errorForm.value);
   }
 }

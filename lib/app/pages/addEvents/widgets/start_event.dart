@@ -26,7 +26,6 @@ class StartEvent extends GetView<AddEventController> {
                 currentTime: controller.start,
                 onConfirm: (date) {
                   controller.start = date;
-                  print(date);
                 },
                 theme: DatePickerTheme(
                     headerColor: Color(0xFF087EA6),

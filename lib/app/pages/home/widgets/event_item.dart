@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:heippi_calendar/app/data/model/cita_model.dart';
 import 'package:heippi_calendar/app/global_widgets/detail_event.dart';
 import 'package:heippi_calendar/app/pages/home/home_controllers.dart';
-import 'package:intl/intl.dart';
 
 class EventItem extends GetView<HomeController> {
   final int index;
@@ -20,7 +19,7 @@ class EventItem extends GetView<HomeController> {
         ? Color(0xFF8F2571)
         : (cita.type == 'Aniversario')
             ? Color(0xFF623083)
-            : Color(0xFF2196F3);
+            : Color(0xFFAA569E);
     return Container(
       margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       decoration: BoxDecoration(

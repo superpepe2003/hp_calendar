@@ -27,7 +27,6 @@ class EndEvent extends GetView<AddEventController> {
                 currentTime: controller.end,
                 onConfirm: (date) {
                   controller.end = date;
-                  print(date);
                 },
                 theme: DatePickerTheme(
                   headerColor: Color(0xFF087EA6),

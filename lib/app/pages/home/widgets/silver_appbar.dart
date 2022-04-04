@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:heippi_calendar/app/data/model/cita_model.dart';
 import 'package:heippi_calendar/app/routes/app_routes.dart';
 
 import '../home_controllers.dart';

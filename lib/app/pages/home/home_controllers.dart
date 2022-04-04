@@ -22,18 +22,25 @@ class HomeController extends GetxController {
   set selectDate(DateTime value) {
     _selectDate.value = value;
     _citasFiltradas.assignAll(getCitasFiltradas());
+    _citasFiltradas.sort((a, b) => a.start.millisecondsSinceEpoch
+        .compareTo(b.start.millisecondsSinceEpoch));
   }
 
   @override
   void onInit() {
     super.onInit();
     _citas.assignAll([cita1, cita2, cita3, cita4, cita5]);
+    _citas.sort((a, b) => a.start.millisecondsSinceEpoch
+        .compareTo(b.start.millisecondsSinceEpoch));
     _citasFiltradas.assignAll(getCitasFiltradas());
+    _citasFiltradas.sort((a, b) => a.start.millisecondsSinceEpoch
+        .compareTo(b.start.millisecondsSinceEpoch));
   }
 
   void add(CitaModel cita) {
     _citas.add(cita);
-    print(citas.length);
+    _citas.sort((a, b) => a.start.millisecondsSinceEpoch
+        .compareTo(b.start.millisecondsSinceEpoch));
   }
 
   void removeEvent(index) {
