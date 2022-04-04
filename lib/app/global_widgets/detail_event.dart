@@ -19,58 +19,56 @@ class DetailEvent extends StatelessWidget {
         children: [
           HeaderDiagonal(),
           Container(
-              child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  margin: EdgeInsets.only(top: 30),
-                  child: Text(
-                    event.name,
-                    style: TextStyle(
-                        color: Colors.white70,
-                        fontSize: 25,
-                        fontFamily: 'Raleway',
-                        fontWeight: FontWeight.w800),
-                  ),
+              child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.only(top: 30),
+                child: Text(
+                  event.name,
+                  style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 25,
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.w800),
                 ),
-                Container(
-                  margin: EdgeInsets.only(bottom: 10),
-                  child: Center(
-                    child: Text(event.type,
-                        style: TextStyle(
-                            color: Colors.white70,
-                            fontSize: 12,
-                            fontFamily: 'RobotoMono')),
-                  ),
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 10),
+                child: Center(
+                  child: Text(event.type,
+                      style: TextStyle(
+                          color: Colors.white70,
+                          fontSize: 12,
+                          fontFamily: 'RobotoMono')),
                 ),
-                _showDate(),
-                _showTime(),
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  child: MaterialButton(
-                    color: Colors.red[300],
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            bottomRight: Radius.circular(20))),
-                    child: Container(
-                      width: 120,
-                      height: 50,
-                      child: Center(
-                        child: Text(
-                          'Cerrar',
-                          style: TextStyle(color: Colors.white),
-                        ),
+              ),
+              _showDate(),
+              Expanded(child: _showTime()),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                child: MaterialButton(
+                  color: Colors.red[300],
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          bottomRight: Radius.circular(20))),
+                  child: Container(
+                    width: 120,
+                    height: 50,
+                    child: Center(
+                      child: Text(
+                        'Cerrar',
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
-                    onPressed: () {
-                      Navigator.of(context, rootNavigator: true).pop('dialog');
-                    },
                   ),
+                  onPressed: () {
+                    Navigator.of(context, rootNavigator: true).pop('dialog');
+                  },
                 ),
-              ],
-            ),
+              ),
+            ],
           )),
         ],
       ),
@@ -108,75 +106,78 @@ class DetailEvent extends StatelessWidget {
   }
 
   Widget _showTime() {
-    return Container(
-      margin: EdgeInsets.only(top: 50, left: 10),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Icon(Icons.circle_notifications, color: Colors.white, size: 30),
-              Container(
-                margin: EdgeInsets.only(left: 5, right: 5),
-                color: Colors.white70,
-                width: 1,
-                height: 20,
-              ),
-              Text(
-                DateFormat('HH:mm', 'es').format(event.start) +
-                    '   ' +
-                    '${!event.start.isSameDate(event.end) ? DateFormat('dd MMMM', 'es').format(event.start) : ''}',
-                style: TextStyle(
+    return SingleChildScrollView(
+      child: Container(
+        margin: EdgeInsets.only(top: 50, left: 10),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Icon(Icons.circle_notifications, color: Colors.white, size: 30),
+                Container(
+                  margin: EdgeInsets.only(left: 5, right: 5),
                   color: Colors.white70,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: 'HammersmithOne',
+                  width: 1,
+                  height: 20,
                 ),
-              ),
-            ],
-          ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: Container(
-              alignment: Alignment.topLeft,
-              margin: EdgeInsets.only(left: 13),
-              color: Colors.white70,
-              height: 25,
-              width: 1,
+                Text(
+                  DateFormat('HH:mm', 'es').format(event.start) +
+                      '   ' +
+                      '${!event.start.isSameDate(event.end) ? DateFormat('dd MMMM', 'es').format(event.start) : ''}',
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'HammersmithOne',
+                  ),
+                ),
+              ],
             ),
-          ),
-          Row(
-            children: [
-              Icon(Icons.circle_notifications, color: Colors.white70, size: 30),
-              Container(
-                margin: EdgeInsets.only(left: 5, right: 5),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Container(
+                alignment: Alignment.topLeft,
+                margin: EdgeInsets.only(left: 13),
                 color: Colors.white70,
+                height: 25,
                 width: 1,
-                height: 20,
               ),
-              Text(
-                DateFormat('HH:mm', 'es').format(event.end) +
-                    '   ' +
-                    '${!event.start.isSameDate(event.end) ? DateFormat('dd MMMM', 'es').format(event.end) : ''}',
-                style: TextStyle(
+            ),
+            Row(
+              children: [
+                Icon(Icons.circle_notifications,
+                    color: Colors.white70, size: 30),
+                Container(
+                  margin: EdgeInsets.only(left: 5, right: 5),
                   color: Colors.white70,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: 'HammersmithOne',
+                  width: 1,
+                  height: 20,
                 ),
-              ),
-            ],
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 20),
-            child: Text(event.description + event.description,
-                style: TextStyle(
-                  color: Colors.white70,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  fontFamily: 'Raleway',
-                )),
-          )
-        ],
+                Text(
+                  DateFormat('HH:mm', 'es').format(event.end) +
+                      '   ' +
+                      '${!event.start.isSameDate(event.end) ? DateFormat('dd MMMM', 'es').format(event.end) : ''}',
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'HammersmithOne',
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 20),
+              child: Text(event.description,
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'Raleway',
+                  )),
+            )
+          ],
+        ),
       ),
     );
   }

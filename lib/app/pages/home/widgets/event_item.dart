@@ -170,7 +170,7 @@ class EventItem extends GetView<HomeController> {
                               (cita.end.difference(cita.start).inMinutes % 60)
                                   .toString()
                                   .padLeft(2, '0') +
-                              ' h',
+                              "${(cita.end.difference(cita.start).inHours == 0) ? ' m' : ' h'}",
                           style: TextStyle(color: Colors.white70),
                         ),
                       ),

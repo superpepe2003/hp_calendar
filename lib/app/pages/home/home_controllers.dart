@@ -29,7 +29,19 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    _citas.assignAll([cita1, cita2, cita3, cita4, cita5]);
+    _citas.assignAll([
+      cita1,
+      cita2,
+      cita3,
+      cita4,
+      cita5,
+      cita6,
+      cita7,
+      cita8,
+      cita9,
+      cita10,
+      cita11
+    ]);
     _citas.sort((a, b) => a.start.millisecondsSinceEpoch
         .compareTo(b.start.millisecondsSinceEpoch));
     _citasFiltradas.assignAll(getCitasFiltradas());
