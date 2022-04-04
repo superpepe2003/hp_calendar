@@ -33,6 +33,7 @@ class BotonGrabar extends GetView<AddEventController> {
                   context: context,
                   builder: (BuildContext context) {
                     return AlertDialog(
+                        backgroundColor: Color(0xFF564F54),
                         shape: RoundedRectangleBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20.0))),

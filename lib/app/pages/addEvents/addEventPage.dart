@@ -28,6 +28,7 @@ class AddEventPage extends GetView<AddEventController> {
         ),
       ),
       body: Container(
+        color: Colors.black87,
         child: Center(
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
@@ -37,7 +38,7 @@ class AddEventPage extends GetView<AddEventController> {
                   margin: EdgeInsets.only(top: 10),
                   child: Text('Ingrese un nuevo evento',
                       style: TextStyle(
-                          color: Color(0xff0D6C8C),
+                          color: Colors.white70,
                           fontSize: 17,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Verdana')),

@@ -10,18 +10,20 @@ class SwitchAllDay extends GetView<AddEventController> {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       padding: EdgeInsets.all(5),
-      color: Color(0xFFEFF6F8),
+      color: Colors.white24,
       width: double.infinity,
       child: Row(
         children: [
           Icon(
             Icons.access_alarm_sharp,
-            color: Color(0xFF087EA6),
+            color: Colors.white70,
           ),
           SizedBox(width: 10),
-          Expanded(child: Text(' El evento dura todo el día')),
+          Expanded(
+              child: Text(' El evento dura todo el día',
+                  style: TextStyle(color: Colors.white70))),
           Obx(() => CupertinoSwitch(
-                activeColor: Theme.of(context).primaryColor,
+                activeColor: Colors.white70,
                 value: controller.allDay,
                 onChanged: (value) {
                   controller.allDay = value;

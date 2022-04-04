@@ -9,16 +9,17 @@ class TxtName extends GetView<AddEventController> {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       padding: EdgeInsets.all(5),
-      color: Color(0xFFEFF6F8),
+      color: Colors.white24,
       child: Obx(
         () => TextFormField(
+          style: TextStyle(color: Colors.white70),
           decoration: InputDecoration(
             labelText: 'Nombre',
             errorText: controller.errorName,
-            labelStyle: TextStyle(color: Color(0xFF087EA6)),
+            labelStyle: TextStyle(color: Colors.white70),
             focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: Color(0xFF087EA6))),
-            icon: Icon(Icons.notes_rounded),
+            icon: Icon(Icons.notes_rounded, color: Colors.white70),
           ),
           onChanged: (value) {
             controller.name = value;

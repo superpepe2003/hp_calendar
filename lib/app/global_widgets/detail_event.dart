@@ -2,7 +2,9 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:heippi_calendar/app/data/model/cita_model.dart';
+import 'package:heippi_calendar/app/routes/app_routes.dart';
 import 'package:intl/intl.dart';
 
 class DetailEvent extends StatelessWidget {
@@ -29,7 +31,7 @@ class DetailEvent extends StatelessWidget {
                   child: Text(
                     event.name,
                     style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.white70,
                         fontSize: 25,
                         fontFamily: 'Raleway',
                         fontWeight: FontWeight.w800),
@@ -40,17 +42,36 @@ class DetailEvent extends StatelessWidget {
                   child: Center(
                     child: Text(event.type,
                         style: TextStyle(
-                            color: Colors.white60,
+                            color: Colors.white70,
                             fontSize: 12,
                             fontFamily: 'RobotoMono')),
                   ),
                 ),
-                Divider(
-                  height: 1,
-                  thickness: 2,
-                ),
                 _showDate(),
                 _showTime(),
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  child: MaterialButton(
+                    color: Colors.red[300],
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            bottomRight: Radius.circular(20))),
+                    child: Container(
+                      width: 120,
+                      height: 50,
+                      child: Center(
+                        child: Text(
+                          'Cerrar',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context, rootNavigator: true).pop('dialog');
+                    },
+                  ),
+                ),
               ],
             ),
           )),
@@ -96,11 +117,10 @@ class DetailEvent extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(Icons.circle_notifications,
-                  color: Color(0xFF72388C), size: 30),
+              Icon(Icons.circle_notifications, color: Colors.white, size: 30),
               Container(
                 margin: EdgeInsets.only(left: 5, right: 5),
-                color: Color(0xFF72388C),
+                color: Colors.white70,
                 width: 1,
                 height: 20,
               ),
@@ -109,7 +129,7 @@ class DetailEvent extends StatelessWidget {
                     '   ' +
                     '${!event.start.isSameDate(event.end) ? DateFormat('dd MMMM', 'es').format(event.start) : ''}',
                 style: TextStyle(
-                  color: Color(0xFF72388C),
+                  color: Colors.white70,
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
                   fontFamily: 'HammersmithOne',
@@ -122,18 +142,17 @@ class DetailEvent extends StatelessWidget {
             child: Container(
               alignment: Alignment.topLeft,
               margin: EdgeInsets.only(left: 13),
-              color: Color(0xFF72388C),
+              color: Colors.white70,
               height: 25,
               width: 1,
             ),
           ),
           Row(
             children: [
-              Icon(Icons.circle_notifications,
-                  color: Color(0xFF72388C), size: 30),
+              Icon(Icons.circle_notifications, color: Colors.white70, size: 30),
               Container(
                 margin: EdgeInsets.only(left: 5, right: 5),
-                color: Color(0xFF72388C),
+                color: Colors.white70,
                 width: 1,
                 height: 20,
               ),
@@ -142,7 +161,7 @@ class DetailEvent extends StatelessWidget {
                     '   ' +
                     '${!event.start.isSameDate(event.end) ? DateFormat('dd MMMM', 'es').format(event.end) : ''}',
                 style: TextStyle(
-                  color: Color(0xFF72388C),
+                  color: Colors.white70,
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
                   fontFamily: 'HammersmithOne',
@@ -154,7 +173,7 @@ class DetailEvent extends StatelessWidget {
             margin: EdgeInsets.only(top: 20),
             child: Text(event.description + event.description,
                 style: TextStyle(
-                  color: Color(0xFF72388C),
+                  color: Colors.white70,
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
                   fontFamily: 'Raleway',

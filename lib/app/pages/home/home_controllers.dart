@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:heippi_calendar/app/data/model/cita_model.dart';
+import 'package:heippi_calendar/app/data/seed/data.dart';
 
 class HomeController extends GetxController {
   // var data = 0;
@@ -10,38 +11,24 @@ class HomeController extends GetxController {
   // }
 
   var _citas = <CitaModel>[].obs;
+  var _citasFiltradas = <CitaModel>[].obs;
+  var _selectDate = DateTime.now().obs;
+  var _isFiltrado = false.obs;
 
-  var cita1 = CitaModel(
-    type: 'Cita',
-    name: 'Cita 1',
-    start: DateTime.parse('2020-01-01'),
-    end: DateTime.parse('2020-01-01'),
-    allDay: false,
-    description: 'Descripcion de la cita 1',
-  );
+  get isFiltrado => _isFiltrado.value;
+  set isFiltrado(bool value) => _isFiltrado.value = value;
 
-  var cita2 = CitaModel(
-    type: 'Cita',
-    name: 'Cita 2',
-    start: DateTime.parse('2020-01-02'),
-    end: DateTime.parse('2020-01-02'),
-    allDay: false,
-    description: 'Descripcion de la cita 2',
-  );
-
-  var cita3 = CitaModel(
-    type: 'Cita',
-    name: 'Cita 3',
-    start: DateTime.parse('2020-01-03'),
-    end: DateTime.parse('2020-01-03'),
-    allDay: false,
-    description: 'Descripcion de la cita 3',
-  );
+  DateTime get selectDate => _selectDate.value;
+  set selectDate(DateTime value) {
+    _selectDate.value = value;
+    _citasFiltradas.assignAll(getCitasFiltradas());
+  }
 
   @override
   void onInit() {
     super.onInit();
-    _citas.assignAll([cita1, cita2, cita3]);
+    _citas.assignAll([cita1, cita2, cita3, cita4, cita5]);
+    _citasFiltradas.assignAll(getCitasFiltradas());
   }
 
   void add(CitaModel cita) {
@@ -49,9 +36,28 @@ class HomeController extends GetxController {
     print(citas.length);
   }
 
+  void removeEvent(index) {
+    _citas.removeAt(index);
+  }
+
   CitaModel getEvent(int index) {
-    return citas[index];
+    if (_isFiltrado.value) {
+      return citasFiltradas[index];
+    } else {
+      return citas[index];
+    }
   }
 
   List<CitaModel> get citas => _citas.toList();
+  List<CitaModel> get citasFiltradas => _citasFiltradas.toList();
+
+  List<CitaModel> getCitasFiltradas() {
+    var temp = citas
+        .where((cita) =>
+            cita.start.day == selectDate.day &&
+            cita.start.month == selectDate.month &&
+            cita.start.year == selectDate.year)
+        .toList();
+    return temp;
+  }
 }
